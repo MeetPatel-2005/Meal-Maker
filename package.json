@@ -1,0 +1,27 @@
+{
+  "name": "meal-maker",
+  "version": "1.0.0",
+  "description": "A Recipe Generator Website Which Generates Recipes Based on Ingredients Provided By User in Input",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "mongoose",
+    "express",
+    "backend"
+  ],
+  "author": "Meet Patel, Malay Patel, Rudra Patel",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
