@@ -1,21 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Roboto;
-  }
 
-  html,
-  body {
-    height: 100%;
-    width: 100%;
-  }
-  body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    background-color:#aaacf5;
-  }
   .footer{
     margin-top: auto;
   }
@@ -29,7 +12,8 @@
     justify-content: space-around;
     padding: 20px;
     /* border: 2px red solid; */
-  }
+  } 
+  
   .contact img{
     height: 35px;
     margin-right: 20px;
