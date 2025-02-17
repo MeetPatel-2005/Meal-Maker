@@ -7,7 +7,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 7px 60px;
-    background-color: #1A1A2E;
+    background-color: var(--dark-blue);
+    top: 1%;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 8px;
   }
   .nav img {
     height: 4rem;
@@ -22,6 +26,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   .nav .nav-links a{
     text-decoration: none;
@@ -36,11 +41,11 @@
     font-size: 22px;
     border-style: none;
     font-weight: 400;
-    background-color: #4b51ff;
+    background-color: var(--purple);
     color: white;
   }
   .nav .nav-links button:hover{
-    background-color: #7d81ff;
+    background-color: #7d81fa;
     transition: all 0.2s ease;
   }
   .nav .nav-links button:active{
@@ -86,7 +91,7 @@
     width: 35.3%;
     right: -40%;
     top: 0;
-    background-color:rgba(122, 123, 239, 0.2);
+    background-color:rgba(122, 123, 239, 0.5);
     padding: 150px 40px;
     backdrop-filter: blur(70px);
   }

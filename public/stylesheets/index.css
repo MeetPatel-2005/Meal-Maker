@@ -1,3 +1,8 @@
+:root{
+  --dark-blue: #0d0d19;
+  --purple: #6366F1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,13 +17,10 @@ body {
 }
 
 body{
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   min-height: 100vh;
-  background-color:#aaacf5;
-  overflow-x: hidden;
+  background-color: #eaebfd;
+  overflow-x: hidden; 
 }
 
-h1 {
-    color: red;
-}

@@ -1,4 +1,5 @@
 var tl = gsap.timeline();
+var t2 = gsap.timeline();
 var menu = document.querySelector(".nav i");
 var close = document.querySelector(".full i");
 
@@ -33,17 +34,24 @@ close.addEventListener("click", () => {
 
 
 // navbar Animation
-gsap.from(".nav img",{
+gsap.from(".nav", {
   opacity:0,
-  duration:0.7,
+  duration:0.5,
   ease:"power4.out",
   y: -70
-});
-gsap.from(".nav-links li", {
+})
+
+t2.from(".nav img" ,{
   opacity:0,
   duration:0.7,
   ease:"power4.out",
-  y: -70,
+  y: 70,
+  delay: 0.3
+});
+t2.from(".nav-links li", {
+  opacity:0,
+  duration:0.7,
+  ease:"power4.out",
+  y: 70,
   stagger: 0.2,
-  delay: 0.2
 });

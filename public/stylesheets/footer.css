@@ -1,29 +1,29 @@
 
-  .footer{
+  /* .footer{
     margin-top: auto;
-  }
+  } */
   .foot{
     color: black;
     display: flex;
     width: 100%;
     height: auto;
-    background-color: #1A1A2E;
+    background-color: var(--dark-blue);
     flex-direction: row;
     justify-content: space-around;
     padding: 20px;
     /* border: 2px red solid; */
   } 
   
-  .contact img{
+  .contact-us img{
     height: 35px;
     margin-right: 20px;
   }
 
-  .contact h1{
-    color: #6366F1;
+  .contact-us h1{
+    color: var(--purple);
     margin-bottom: 20px;
   }
-  .contact li{
+  .contact-us li{
     display: flex;
     align-items: center;
     list-style: none;
@@ -38,7 +38,7 @@
   }
   .foot .q-link h1{
     margin-bottom: 20px;
-    color: #6366F1;
+    color: var(--purple);
   }
   .foot .q-link li{
     display: flex;
@@ -64,7 +64,7 @@
   .newsletter h1{
     margin-bottom: 10px;
     /* font-size: 40px; */
-    color: #6366F1;
+    color: var(--purple);
   }
   .newsletter p{
     margin-bottom: 20px;
@@ -86,7 +86,7 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    background-color:#6366F1;
+    background-color: var(--purple);
     color: white;
     z-index: 99;
     transition: all 1s ease;
@@ -122,7 +122,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color:#6366F1;
+    background-color:var(--purple);
     font-size: 18px;
     font-weight: 300;
     color: white ;
