@@ -1,0 +1,273 @@
+
+.main{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+}
+.main h1{
+    font-family: "Montserrat";
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0.75rem 25rem;
+}
+.title h1{
+    background: linear-gradient(45deg, var(--light-purple-2), var(--light-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.title p{
+    text-align: center;
+    color: white;
+    font-family: "Montserrat";
+    font-weight: 100;   
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+.container{
+    margin-top: 30px;
+    height: auto;
+    width: 45%;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    transition: all 1s ease;
+    margin-bottom: 80px;
+}
+
+
+.container h4, .meal h4, .cuisine h4{
+    font-family: "Montserrat";
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: white;
+}
+
+.ing{
+    margin: 30px;
+}
+.proteins, .veg, .grains, .dairy, .herbs{
+    font-family: "Roboto";
+    /* display: grid; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-style: none;
+    padding: 10px 15px;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.09);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+.proteins i, .veg i, .grains i, .dairy i, .herbs i{
+    display: inline-block;
+    font-size: 13px;
+    transition: all 0.2s ease
+}
+.rotated{
+    transform: rotate(180deg)  !important;
+}
+.proteins:hover, .veg:hover, .grains:hover, .dairy:hover, .herbs:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(0.995);
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+.proteins{
+    grid-template-columns: repeat(10, 1fr);
+}
+.veg{
+    grid-template-columns: repeat(10, 1fr);
+}
+.grains{
+    grid-template-columns: repeat(13, 1fr);
+}
+.dairy{
+    grid-template-columns: repeat(17, 1fr);
+}
+.herbs{
+    grid-template-columns: repeat(14, 1fr);
+}
+.proteins:active{
+    scale: 0.99;
+}
+.drp-1, .drp-2, .drp-3, .drp-4 ,.drp-5{
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
+}
+.drp-btn{
+    font-family: "Roboto";
+    border-style: none;
+    padding: 10px;
+    font-size: 0.85rem;
+    font-weight: 300;
+    border-radius: 7px;
+    background-color: rgb(255, 255, 255 ,0.1);
+    color: white;
+    backdrop-filter: blur(5px);
+    margin: 5px;
+    transition: all 0.2s ease;
+    letter-spacing: 1px;
+}
+.drp-btn:active{
+    scale: 0.95;
+}
+
+.selected{
+    background-color: var(--light-purple);
+    color: white;
+}
+
+.customIng{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.c-input{
+    width: 100%;
+    border-style: none;
+    border-radius: 10px;
+    padding: 12px 12px;
+    background-color: rgb(255, 255, 255 ,0.1);
+    color: white;
+    backdrop-filter: blur(5px);
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+.c-input::placeholder{
+    color: rgb(255, 255, 255, 0.3);
+}
+.c-input:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.c-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 25px;
+    background-color: var(--light-purple);
+    color: white;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.c-add:active{
+    scale: 0.95;
+}
+.c-add:hover{
+    background-color: var(--light-purple-2);
+}
+
+.mealxcuisine{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0px;
+    border-radius: 15px;
+}
+.meal select, .cuisine select{
+    width: 100%;
+    border-style: none;
+    padding: 15px ;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.2s ease;
+    margin: 5px 0px;
+    cursor: pointer;
+}
+.meal option, .cuisine option{
+    font-weight: 400;
+    background-color: #515160;
+    font-family: "Montserrat";
+}
+.meal select:hover, .cuisine select:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.generate-1{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.generate-2{
+    font-family: "Montserrat";
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--light-purple);
+    border-style: none;
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.generate-2:hover{
+    text-shadow: 0px 0px 2px white;
+    background-color: var(--light-purple-2);
+}
+.generate-2:active{
+    scale: 0.99;
+}
+.generate-2 i {
+    margin-right: 20px;
+}
+.selectedIng{
+    margin: 0px 0px 25px 0px;
+}
+.selectedIngList{
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 1px rgb(255, 255, 255, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 6px 0;
+    border-radius: 7px;
+}
+
+.selectedIngList .s-ing{
+    font-family: "Montserrat";
+    font-size: 15px;
+    margin: 8px;
+    color: rgb(251, 114, 114);
+    padding: 2px 5px;
+    border-radius: 7px;
+    transition: all 0.1s ease;
+}
+.selectedIngList .cancelIng{
+    font-size: 20px;
+    color: rgb(251, 114, 114);
+    border-radius: 5px;
+    border-style: none;
+    background-color: transparent;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.selectedIngList .cancelIng:hover{
+    scale: 1.1;
+}

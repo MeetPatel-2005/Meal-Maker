@@ -1,17 +1,15 @@
-
   .nav {
     position: sticky;
-    top: 0;
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 60px;
-    background-color: var(--dark-blue);
-    top: 1%;
+    padding: 15px 60px;
+    background-color: rgb(26, 26, 46,0.5) ;
+    backdrop-filter: blur(10px);
+    top: 0;
     overflow: hidden;
-    border-radius: 20px;
-    margin: 8px;
+    z-index: 99;
   }
   .nav img {
     height: 4rem;
@@ -34,6 +32,7 @@
     font-size: 1.5rem;
     font-weight: 200;
     margin-right: 35px;
+    text-shadow: 0px 0px 3px white;
   }
   .nav .nav-links button{
     padding: 7px 10px;
@@ -43,6 +42,7 @@
     font-weight: 400;
     background-color: var(--purple);
     color: white;
+    cursor: pointer;
   }
   .nav .nav-links button:hover{
     background-color: #7d81fa;
@@ -65,6 +65,7 @@
     border-radius: 20px;
     position: absolute;
     transition: all 0.4s ease;
+    box-shadow: 0px 0px 7px white;
   }
   .nav .nav-links li:hover::before{
     left: 0%;
@@ -91,9 +92,9 @@
     width: 35.3%;
     right: -40%;
     top: 0;
-    background-color:rgba(122, 123, 239, 0.5);
     padding: 150px 40px;
-    backdrop-filter: blur(70px);
+    backdrop-filter: blur(20px);
+    z-index: 99;  
   }
   .full a {
     font-size: 40px;

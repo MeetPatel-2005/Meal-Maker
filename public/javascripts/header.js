@@ -34,23 +34,23 @@ close.addEventListener("click", () => {
 
 
 // navbar Animation
-gsap.from(".nav", {
-  opacity:0,
-  duration:0.5,
-  ease:"power4.out",
-  y: -70
-})
+// gsap.from(".nav", {
+//   opacity:0,
+//   duration:0.5,
+//   ease:"power4.out",
+//   y: -70
+// })
 
 t2.from(".nav img" ,{
   opacity:0,
-  duration:0.7,
+  duration:0.4,
   ease:"power4.out",
   y: 70,
   delay: 0.3
 });
 t2.from(".nav-links li", {
   opacity:0,
-  duration:0.7,
+  duration:0.4,
   ease:"power4.out",
   y: 70,
   stagger: 0.2,
