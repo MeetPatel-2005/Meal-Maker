@@ -11,5 +11,6 @@ app.use(express.static(path.join(__dirname, "../public/stylesheets")));
 app.use(express.static(path.join(__dirname, "../public/javascripts")));
 app.use(express.static(path.join(__dirname, "../public/images")));
 app.use(express.static(path.join(__dirname, "../public/Gif")));
+app.use(express.static(path.join(__dirname, "../public/Videos")));
 
 module.exports = { app };

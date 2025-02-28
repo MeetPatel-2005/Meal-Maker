@@ -1,0 +1,82 @@
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 20px;
+    height: 100%;
+    width: auto;
+    margin: 20px;
+}
+    
+.div2, .div3, .div4, .div5, .div6, .div7 {
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgb(51, 53, 160, 0.8);
+}
+.div2 video, .div3 video, .div4 video, .div5 video, .div6 video, .div7 video{
+    filter: brightness(50%);
+    transition: all 0.4s ease;
+}
+
+.parent video:hover{
+    scale: 1.2;
+}
+
+.div1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 3;
+    font-family: "Montserrat";
+    font-size: 8rem;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    background: linear-gradient(to right, #3335a0, #6366F1);
+    -webkit-background-clip: text;
+    color: transparent;
+    /* text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.2); */
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.div3 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+
+.div4 {
+    grid-row: span 4 / span 4;
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+.div5 {
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+.div6 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 5;
+}
+
+.div7 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 5;
+}
+        

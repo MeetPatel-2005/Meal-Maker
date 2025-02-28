@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="/home.css">
 
+    <!-- Links Required For About -->
+    <link rel="stylesheet" href="/about.css">
+
+    <!-- Links Required For Block -->
+    <link rel="stylesheet" href="/block.css">
+
     <!-- Links Required For Footer -->
     <link rel="stylesheet" href="/footer.css">
 
@@ -33,6 +39,10 @@
 
       <%- include("partials/home.ejs"); %>
 
+      <%- include("partials/about.ejs"); %>
+
+      <%- include("partials/block.ejs"); %>
+
       <%- include("partials/footer.ejs"); %>
       <!-- JavaScript Files -->
       <script
@@ -41,9 +51,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer">
       </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
       <script src="/header.js"></script>
       <script src="/home.js"></script>
+      <script src="/about.js"></script>
       <script src="/footer.js"></script>
 </body>
 </html>
