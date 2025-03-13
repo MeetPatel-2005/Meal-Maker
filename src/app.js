@@ -1,6 +1,7 @@
 
 const express = require("express");
 const app = express();
+require("./db/db");
 const path = require("path");
 
 app.set("view engine", "ejs");
@@ -12,5 +13,7 @@ app.use(express.static(path.join(__dirname, "../public/javascripts")));
 app.use(express.static(path.join(__dirname, "../public/images")));
 app.use(express.static(path.join(__dirname, "../public/Gif")));
 app.use(express.static(path.join(__dirname, "../public/Videos")));
+
+app.use('/src', express.static(path.join(__dirname, 'src')));
 
 module.exports = { app };
