@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+</head>
+<body>
+    <h2>Reset Password</h2>
+    <form id="resetForm">
+        <input type="hidden" id="token" name="token" value="<%= token %>">
+
+        <input type="password" id="password" name="password" placeholder="Create New Password" required>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+        
+        <button type="submit">Reset Password</button>
+    </form>
+
+    <script>
+        document.getElementById("resetForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const token = new URLSearchParams(window.location.search).get("token");
+            console.log("Token being sent:", token);  // Debugging
+
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            try {
+                const response = await fetch("/auth/reset-password", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ token, password })
+                });
+
+                const data = await response.json();
+                console.log("Response from backend:", data);  // Debugging
+
+                alert(data.msg);  // Show success/error message
+
+                if (data.success && data.redirectUrl) {
+                    console.log("Redirecting to:", data.redirectUrl);  // Debugging
+                    setTimeout(() => {
+                        window.location.href = data.redirectUrl;  // Redirect to /ls
+                    }, 2000);  // 2-second delay before redirect
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Something went wrong!");
+            }
+        });
+    </script>
+
+    <!-- <script>
+        document.getElementById("resetForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+    
+            const token = new URLSearchParams(window.location.search).get("token");
+            console.log("Token being sent:", token);  // Debugging
+    
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+    
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+    
+            const response = await fetch("/auth/reset-password", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token, password })
+            });
+    
+            const data = await response.json();
+            alert(data.msg);
+        });
+    </script> -->
+</body>
+</html>
+
