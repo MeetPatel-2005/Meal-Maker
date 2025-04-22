@@ -31,6 +31,7 @@ const signup = async (req, res) => {
     }
 }
 
+
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -50,7 +51,7 @@ const login = async (req, res) => {
         }
         const jwtToken = jwt.sign(
             { email: user.email, _id: user._id },
-            process.env.JWT_SECRET,
+            "secret-123",
             { expiresIn: "24h" }
         )
         

@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const { app } = require("./app");
+const { app }  = require("./app");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const AuthRouter = require("./routes/AuthRouter");
