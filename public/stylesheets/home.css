@@ -19,12 +19,15 @@
     align-items: center;
     flex-direction: column;
     margin: 0.75rem 25rem;
+    padding: 0 6.5rem;
 }
 .title h1{
     background: linear-gradient(45deg, var(--light-purple-2), var(--light-purple));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: 5rem;
 }
 .title p{
     text-align: center;

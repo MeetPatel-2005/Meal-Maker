@@ -33,7 +33,6 @@
     font-size: 1.5rem;
     font-weight: 200;
     margin-right: 35px;
-    text-shadow: 0px 0px 3px white;
   }
   .nav .nav-links button{
     padding: 7px 10px;
@@ -95,7 +94,8 @@
     top: 0;
     padding: 150px 40px;
     backdrop-filter: blur(20px);
-    z-index: 99;  
+    z-index: 99;
+    font-family: "Roboto";
   }
   .full a {
     font-size: 40px;
