@@ -7,6 +7,7 @@
     <div class="container">
         <div class="ing">
             <h4>Select Ingredient</h4>
+
             <!-- Proteins -->
             <button class="proteins">Proteins<i class="fa-solid fa-angle-down"></i></button>
             <div class="drp-1">
@@ -21,6 +22,7 @@
                 <button class="drp-btn">Lamb</button>
                 <button class="drp-btn">Salmon</button>
             </div>
+
             <!-- Vegetables -->
             <button class="veg">Vegetables<i class="fa-solid fa-angle-down"></i></button>
             <div class="drp-2">
@@ -35,6 +37,7 @@
                 <button class="drp-btn">Potatoes</button>
                 <button class="drp-btn">Zucchini</button>
             </div>
+
             <!-- Grains -->
             <button class="grains">Grains<i class="fa-solid fa-angle-down"></i></button>
             <div class="drp-3">
@@ -48,6 +51,7 @@
                 <button class="drp-btn">Tortillas</button>
                 <button class="drp-btn">Noodles</button>
             </div>
+
             <!-- Dairy -->
             <button class="dairy">Dairy<i class="fa-solid fa-angle-down"></i></button>
             <div class="drp-4">
@@ -58,8 +62,9 @@
                 <button class="drp-btn">Cream</button>
                 <button class="drp-btn">Sour Cream</button>
                 <button class="drp-btn">Cream Cheese</button>
-                <button class="drp-btn">Mozzarella</button>>
+                <button class="drp-btn">Mozzarella</button>
             </div>
+
             <!-- Herbs & Spices -->
             <button class="herbs">Herbs<i class="fa-solid fa-angle-down"></i></button>
             <div class="drp-5">
@@ -73,14 +78,17 @@
                 <button class="drp-btn">Ginger</button>
                 <button class="drp-btn">Turmeric</button>
             </div>
+
             <!-- Custom Ingredient -->
             <div class="customIng">
-                <input class="c-input" type="text" name="customIng" id="" placeholder="Add Custom Ingredient"><button class="c-add">+</button>
+                <input class="c-input" type="text" placeholder="Add Custom Ingredient">
+                <button class="c-add">+</button>
             </div>
+
             <div class="mealxcuisine">
                 <div class="meal">
                     <h4>Meal Type</h4>
-                    <select name="meal" id="" class="meal-select">
+                    <select class="meal-select">
                         <option value="Main Course">Main Course</option>
                         <option value="Side Dish">Side Dish</option>
                         <option value="Dessert">Dessert</option>
@@ -94,7 +102,7 @@
                 </div>
                 <div class="cuisine">
                     <h4>Cuisine Type</h4>
-                    <select name="cusine" id="">
+                    <select class="cuisine-select">
                         <option value="Italian">Italian</option>
                         <option value="Mexican">Mexican</option>
                         <option value="Chinese">Chinese</option>
@@ -107,16 +115,21 @@
                     </select>
                 </div>
             </div>
+
             <div class="selectedIng">
                 <h4>Selected Ingredients</h4>
-                <div class="selectedIngList">
-                    <p class="s-ing">Tomatoes<button class="cancelIng">x</button></p>
-                    <p class="s-ing">Tomatoes<button class="cancelIng">x</button></p>
-                </div>
+                <div class="selectedIngList"></div>
             </div>
+
             <div class="generate-1">
-                <button class="generate-2"><i class="fa-solid fa-kitchen-set"></i>Generate Recipes</button>
+                <button class="generate-2"><i class="fa-solid fa-kitchen-set"></i> Generate Recipes</button>
             </div>
+
+            <!-- Recipes Output Section -->
+            <div class="recipe-output"></div>
+
         </div>
     </div>
 </div>
+
+

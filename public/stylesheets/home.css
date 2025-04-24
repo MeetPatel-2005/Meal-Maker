@@ -274,3 +274,16 @@
 .selectedIngList .cancelIng:hover{
     scale: 1.1;
 }
+
+.recipe-card {
+    background: #fefefe;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .recipe-card h3 {
+    margin-top: 0;
+  }
+  
