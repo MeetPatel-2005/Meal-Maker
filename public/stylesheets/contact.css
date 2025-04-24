@@ -36,7 +36,7 @@
 
 .contact-1{
     height: auto;
-    width: 25rem;
+    width: 29rem;
     border-radius: 30px;
     margin: 4rem 0;
     transition: 0.2s all ease;
@@ -52,19 +52,21 @@
 }
 
 .c-photo img{
-    width: 18rem;
-    height: 18rem;
+    width: 20rem;
+    height: 20rem;
     border-radius: 50%;
-    /* box-shadow: 0px 0px 30px var(--purple,1); */
+    object-fit: cover;
 }
+
+
 
 .c-details{
     color: white;
     padding: 0 3rem;
     font-family: "Montserrat";
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: 0px;
+    font-size: 1.1rem;
+    font-weight: 100;
+    letter-spacing: 1px;
     margin-bottom: 2rem;
 }
 .c-details p{

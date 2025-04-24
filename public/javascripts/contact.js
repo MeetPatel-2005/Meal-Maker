@@ -29,7 +29,7 @@ titleTimeline.from(".contact-title h1", {
 const cardsTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".contact",
-    start: "top 70%", // Slightly earlier to ensure visibility
+    start: "top 60%", // Slightly earlier to ensure visibility
     toggleActions: "play none none none",
     markers: false, // Set to true for debugging
     onEnter: () => {
