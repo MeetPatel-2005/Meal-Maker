@@ -16,8 +16,8 @@ const addIngredient = (name) => {
 document.querySelectorAll(".drp-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const name = btn.textContent.trim();
-    const alreadyExists = Array.from(document.querySelectorAll(".s-ing")).some(p =>
-      p.textContent.includes(name)
+    const alreadyExists = Array.from(document.querySelectorAll(".s-ing")).some(
+      (p) => p.textContent.includes(name)
     );
     if (!alreadyExists) addIngredient(name);
   });
@@ -25,7 +25,12 @@ document.querySelectorAll(".drp-btn").forEach((btn) => {
 
 customAddBtn.addEventListener("click", () => {
   const name = customInput.value.trim();
-  if (name && !Array.from(document.querySelectorAll(".s-ing")).some(p => p.textContent.includes(name))) {
+  if (
+    name &&
+    !Array.from(document.querySelectorAll(".s-ing")).some((p) =>
+      p.textContent.includes(name)
+    )
+  ) {
     addIngredient(name);
     customInput.value = "";
   }
@@ -59,18 +64,19 @@ Each recipe should be returned in JSON format as an array like this:
 const downloadRecipeAsPDF = (card) => {
   const opt = {
     margin: 0.5,
-    filename: 'recipe.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
+    filename: "recipe.pdf",
+    image: { type: "jpeg", quality: 0.98 },
     html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
   };
   html2pdf().set(opt).from(card).save();
 };
 
 // 🧪 Gemini API call
 async function generateRecipe() {
-  const ingredients = Array.from(document.querySelectorAll(".s-ing"))
-    .map(el => el.textContent.replace("x", "").trim());
+  const ingredients = Array.from(document.querySelectorAll(".s-ing")).map(
+    (el) => el.textContent.replace("x", "").trim()
+  );
 
   if (!ingredients.length) {
     alert("Please select at least one ingredient.");
@@ -79,10 +85,16 @@ async function generateRecipe() {
 
   const mealType = mealTypeSelect.value;
   const cuisine = cuisineTypeSelect.value;
-  const prompt = generateRecipePrompt(ingredients.join(", "), mealType, cuisine);
+  const prompt = generateRecipePrompt(
+    ingredients.join(", "),
+    mealType,
+    cuisine
+  );
 
   // Clear previous output and show loading
-  recipeCardsContainer.innerHTML = "<p>⏳ Generating recipe...</p>";
+  // recipeCardsContainer.innerHTML = "<p font-family = 'Montserrat' margin=1rem color = white>  ⏳ Generating recipe...</p>";
+  recipeCardsContainer.innerHTML =
+    "<p style='font-family: Montserrat; margin: 1rem; color: white;'>⏳ Generating recipe...</p>";
 
   const apiKey = "AIzaSyAvncD5QA-8B37ACT_nA_xY6futVoPD5Qw";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -105,13 +117,13 @@ async function generateRecipe() {
     const data = await res.json();
 
     if (data.error) {
-      recipeCardsContainer.innerHTML = `<p style="color: red;">❌ Error: ${data.error.message}</p>`;
+      recipeCardsContainer.innerHTML = `<p style="color: red; font-family: Montserrat; margin: 1rem;">❌ Error: ${data.error.message}</p>`;
       return;
     }
 
     const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
     if (!content) {
-      recipeCardsContainer.innerHTML = `<p style="color: red;">❌ Failed to get recipe.</p>`;
+      recipeCardsContainer.innerHTML = `<p style="color: red; font-family: Montserrat; margin: 1rem;">❌ Failed to get recipe.</p>`;
       return;
     }
 
@@ -123,7 +135,7 @@ async function generateRecipe() {
     try {
       recipes = JSON.parse(jsonString);
     } catch (e) {
-      recipeCardsContainer.innerHTML = `<p style="color: red;">❌ Error parsing recipe data.</p>`;
+      recipeCardsContainer.innerHTML = `<p style="color: red; font-family: Montserrat; margin: 1rem;">❌ Error parsing recipe data.</p>`;
       return;
     }
 
@@ -134,25 +146,33 @@ async function generateRecipe() {
       const card = document.createElement("div");
       card.className = "recipe-card";
       card.innerHTML = `
+        <div>
         <h3>🍽️ Recipe ${i + 1}</h3>
         <p><strong>Ready in:</strong> ${recipe.readyInMinutes} minutes</p>
         <p><strong>Servings:</strong> ${recipe.servings}</p>
         <p><strong>Instructions:</strong></p>
         <p>${recipe.instructions}</p>
         <p><strong>Ingredients:</strong></p>
-        <ul>${recipe.extendedIngredients.map(ing => `<li>${ing.original}</li>`).join("")}</ul>
-        <button class="download-btn">📄 Download PDF</button>
-      `;
+        <ul>${recipe.extendedIngredients.map((ing) => `<li style = "margin-left: 1rem;">${ing.original}</li>`).join("")}</ul>
+        <button class="download-btn" style = " padding: 5px;  border-radius: 5px; background-color: #2c2c3e; border-style:none; margin:10px; color:white; border:1px solid white; 
+        box-shadow: 2px 2px 3px black; transition: 0.2s all ease; cursor:pointer"
+
+        onmouseover="this.style.scale='1.03'; this.style.backgroundColor='#373744';"
+        onmouseout="this.style.scale='1';"
+
+        ">📄 Download PDF</button>
+        </div>
+        `;
       recipeCardsContainer.appendChild(card);
 
-      card.querySelector(".download-btn").addEventListener("click", () => downloadRecipeAsPDF(card));
+      card
+        .querySelector(".download-btn")
+        .addEventListener("click", () => downloadRecipeAsPDF(card));
     });
-
   } catch (err) {
     console.error("Gemini error:", err);
-    recipeCardsContainer.innerHTML = `<p style="color: red;">❌ Error generating recipe.</p>`;
+    recipeCardsContainer.innerHTML = `<p style="color: red; font-family: Montserrat; margin: 1rem;">❌ Error generating recipe.</p>`;
   }
 }
 
 generateBtn.addEventListener("click", generateRecipe);
-

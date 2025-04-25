@@ -41,7 +41,7 @@
 .container{
     margin-top: 30px;
     height: auto;
-    width: 45%;
+    width: 65%;
     border-radius: 15px;
     background-color: rgb(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
@@ -276,14 +276,15 @@
 }
 
 .recipe-card {
-    background: #fefefe;
+    background: #2c2c3e;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 1rem;
     margin-top: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    color: white;
+    font-family: "Montserrat";
+}
   .recipe-card h3 {
     margin-top: 0;
   }
-  
