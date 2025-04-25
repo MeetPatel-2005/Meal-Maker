@@ -51,7 +51,7 @@ Each recipe should be returned in JSON format as an array like this:
   {
     "readyInMinutes": number,
     "servings": number,
-    "instructions": "Step-by-step instructions",
+    "instructions": "Step-by-step instructions in single paragraph",
     "extendedIngredients": [
       { "original": "ingredient with quantity" }
     ]
