@@ -55,3 +55,8 @@ t2.from(".nav-links li", {
   y: 70,
   stagger: 0.2,
 });
+
+
+  function redirectToLocalhost() {
+    window.location.href = "http://localhost:3000";
+  }
