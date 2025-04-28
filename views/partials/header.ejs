@@ -7,7 +7,7 @@
       <li><a href="#About">About</a></li>
       <li><a href="#Contact">Contact</a></li>
       <li><a href="#FAQ">FAQs</a></li>
-      <li><button>Logout</button></li>
+      <li><button id="logoutButtonMobile">Logout</button></li>
     </ul>
     <i class="ri-menu-line burger-menu"></i>
   </div>
@@ -19,7 +19,48 @@
       <li><a href="#About">About</a></li>
       <li><a href="#Contact">Contact</a></li>
       <li><a href="#FAQ">FAQs</a></li>
-      <li><button>Logout</button></li>
-    </ul>
+      <li><button id="logoutButtonMobile">Logout</button></li>
+  </ul>
+</div>
+
+<!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <h3>Are you sure you want to logout?</h3>
+    <div class="modal-buttons">
+      <button class="logout-btn" onclick="confirmLogout()">Logout</button>
+      <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+    </div>
   </div>
+</div>
+
+<script>
+  function redirectToLocalhost() {
+    window.location.href = "http://127.0.0.1:3000/";
+  }
+  
+  const logoutButton = document.getElementById('logoutButton');
+  const logoutButtonMobile = document.getElementById('logoutButtonMobile');
+  const logoutModal = document.getElementById('logoutModal');
+  
+  if (logoutButton) logoutButton.addEventListener('click', openModal);
+  if (logoutButtonMobile) logoutButtonMobile.addEventListener('click', openModal);
+  
+  function openModal() {
+    logoutModal.style.display = 'flex';
+  }
+  
+  function closeModal() {
+    logoutModal.style.display = 'none';
+  }
+  
+  function confirmLogout() {
+    // Optional: Clear user data from localStorage/sessionStorage if you use tokens
+    // localStorage.removeItem('jwtToken');
+    // sessionStorage.clear();
+  
+    // Redirect to login/signup page
+    window.location.href = "http://127.0.0.1:3000/ls";
+  }
+  </script>
     

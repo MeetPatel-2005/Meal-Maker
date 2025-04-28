@@ -43,7 +43,7 @@ async function handleSignup(event) {
         if (result.success) {
             handleSuccess(result.message);
             console.log("✅ Redirecting to localhost:3000...");
-            window.location.replace("http://localhost:3000/");  // Immediate redirect
+            window.location.replace("http://localhost:3000/home");  // Immediate redirect
         } else {
             handleError(result.message);
         }
@@ -77,7 +77,7 @@ async function handleLogin(event) {
             localStorage.setItem("loggedInUser", result.name);
             handleSuccess(result.message);
             console.log("✅ Redirecting to localhost:3000...");
-            window.location.replace("http://localhost:3000/");  // Immediate redirect
+            window.location.replace("http://localhost:3000/home");  // Immediate redirect
         } else {
             handleError(result.message);
         }
@@ -144,7 +144,7 @@ async function handleResetPassword(event) {
         if (result.success) {
             handleSuccess(result.message);
             setTimeout(() => {
-                window.location.replace("http://localhost:3000/");
+                window.location.replace("http://localhost:3000/home");
             }, 2000);
         } else {
             handleError(result.message);
