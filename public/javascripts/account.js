@@ -77,7 +77,9 @@ async function handleLogin(event) {
             localStorage.setItem("loggedInUser", result.name);
             handleSuccess(result.message);
             console.log("✅ Redirecting to localhost:3000...");
-            window.location.replace("http://localhost:3000/home");  // Immediate redirect
+            setTimeout(() => {
+                window.location.replace("http://localhost:3000/home");  // Immediate redirect
+            }, 2000); 
         } else {
             handleError(result.message);
         }
@@ -109,10 +111,14 @@ async function handleForgetPassword(event) {
 
         const result = await response.json();
         if (result.success) {
+            // Call handleSuccess to show success toast
             handleSuccess(result.msg);
+
+            // Optionally, change the form to show a reset password option
             document.querySelector(".forgot-password").style.display = "none";
             document.querySelector(".reset-password").style.display = "block";
         } else {
+            // Call handleError to show error toast
             handleError(result.msg);
         }
     } catch (error) {
@@ -166,6 +172,8 @@ if (forgotPasswordForm) {
         window.location.href = "http://localhost:3000/forget-password";
     });
 }
+
+
 
 // const register = document.querySelector(".register");
 // const signin = document.querySelector(".signin");

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,5 +22,179 @@
     </div>
 
     </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forget-Reset</title>
+  <link rel="stylesheet" href="forgot-password.css" />
+
+  <!-- ✅ Toastify CSS -->
+
+  <link href="https://fonts.googleapis.com/css2??family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Agdasima:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <style>
+    /* ✅ Custom toast timer bar */
+    .toast-timer {
+      height: 3px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      position: relative;
+      margin-top: 8px;
+      overflow: hidden;
+      border-radius: 2px;
+      font-family: "Montserrat";
+    }
+
+    .toast-timer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: #ffffff;
+      animation: toastTimerBar 4s linear forwards;
+      font-family: "Montserrat";
+    }
+
+    .toastify {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 500px;
+      max-width: 90%;
+      word-wrap: break-word;
+    }
+
+    .toastify span {
+      width: 800px;
+    }
+
+    .toastify > .toast-close {
+      position: static !important;
+      margin-left: 3px;
+      font-size: 18px;
+      color: white;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .toastify > .toast-close:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+
+    @keyframes toastTimerBar {
+      from {
+        width: 100%;
+      }
+      to {
+        width: 0%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="forgot">
+    <div class="forgot-img">
+      <img src="/forgot-password.png" alt="">
+    </div>
+
+    <div class="forgot-form">
+      <h1>Forgot<br>Password ?</h1>
+      <form id="forgotForm">
+        <input type="email" id="forget-reset-email" name="email" placeholder="Enter Email Address" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Toastify JS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <!-- ✅ Toastify message helpers -->
+  <script>
+    const handleSuccess = (msg) => {
+      Toastify({
+        text: `<span style="font-weight: bold;">✔ ${msg}</span>
+               <div class="toast-timer"></div>`,
+        duration: 4000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        escapeMarkup: false,
+        style: {
+          background: "#1E1E1E",
+          color: "#fff",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)",
+          padding: "15px 20px",
+          borderBottom: "4px solid transparent",
+          backgroundImage: "linear-gradient(to right, #00c851, #007e33)",
+          fontFamily: "Montserrat",
+        }
+      }).showToast();
+    };
+
+    const handleError = (msg) => {
+      Toastify({
+        text: `<span style="font-weight: bold;">❌ ${msg}</span>
+               <div class="toast-timer"></div>`,
+        duration: 4000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        escapeMarkup: false,
+        style: {
+          background: "#1E1E1E",
+          color: "#fff",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)",
+          padding: "15px 20px",
+          borderBottom: "4px solid transparent",
+          backgroundImage: "linear-gradient(to right, #ff4444, #cc0000)",
+          fontFamily: "Montserrat",
+        }
+      }).showToast();
+    };
+  </script>
+
+  <!-- ✅ AJAX form handler -->
+  <script>
+    document.getElementById("forgotForm").addEventListener("submit", async function (e) {
+      e.preventDefault(); // stop default form submission
+
+      const email = document.getElementById("forget-reset-email").value;
+
+      try {
+        const response = await fetch("http://localhost:3000/auth/forget-password", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({ email })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          handleSuccess(data.msg);
+        } else {
+          handleError(data.msg);
+        }
+      } catch (err) {
+        handleError("Something went wrong!");
+      }
+    });
+  </script>
 </body>
 </html>
