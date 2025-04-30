@@ -1,39 +1,38 @@
-
 <div class="footer">
-    <div class="foot">
-      <div class="contact-us">
-        <h1>Contact Us</h1>
-        <ul>
-          <li><img src="/home.gif" alt="" srcset="">Address: Charusat University</li>
-          <li><img src="/contact.gif" alt="" srcset="">Email: 23dcs082@charusat.edu.in</li>
-          <li><img src="/contact4.gif" alt="">Phone No.: 9586487086</li>
-        </ul>
-      </div>
-      <div class="q-link">
-        <h1>Quick Link</h1>
-        <ul>
-          <li><img src="/home.gif" alt="" srcset=""><a href="#Home">Home</a></li>
-          <li><img src="/contact.gif" alt="" srcset=""><a href="#About">About Us</a></li>
-          <li><img src="/contact4.gif" alt=""><a href="#Contact">Contact Us</a></li>
-          <li><img src="/faq.gif" alt="" srcset=""><a href="#FAQ">FAQs</a></li>
-        </ul>
-      </div>
-      <div class="newsletter">
-        <h1>Newsletter</h1>
-        <p>Subscribe to our newsletter to get latest updates</p>
-        <input type="email" id="newsletterEmail" placeholder="Enter your email" />
-        <button onclick="subscribeNewsletter()">Subscribe</button>
-      </div>
+  <div class="foot">
+    <div class="contact-us">
+      <h1>Contact Us</h1>
+      <ul>
+        <li><img src="/home.gif" alt="" srcset="">Address: Charusat University</li>
+        <li><img src="/contact.gif" alt="" srcset="">Email: 23dcs082@charusat.edu.in</li>
+        <li><img src="/contact4.gif" alt="">Phone No.: 9586487086</li>
+      </ul>
     </div>
-    <div class="copyright">
-      <p>&copy; 2025 MealMaker. All rights reserved.</p>
+    <div class="q-link">
+      <h1>Quick Link</h1>
+      <ul>
+        <li><img src="/home.gif" alt="" srcset=""><a href="#Home">Home</a></li>
+        <li><img src="/contact.gif" alt="" srcset=""><a href="#About">About Us</a></li>
+        <li><img src="/contact4.gif" alt=""><a href="#Contact">Contact Us</a></li>
+        <li><img src="/faq.gif" alt="" srcset=""><a href="#FAQ">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="newsletter">
+      <h1>Newsletter</h1>
+      <p>Subscribe to our newsletter to get latest updates</p>
+      <input type="email" id="newsletterEmail" placeholder="Enter your email" />
+      <button onclick="subscribeNewsletter()">Subscribe</button>
     </div>
   </div>
+  <div class="copyright">
+    <p>&copy; 2025 MealMaker. All rights reserved.</p>
+  </div>
+</div>
 
 <!-- Popup Modal -->
 <div id="popup" class="popup" style="display: none;">
   <div class="popup-content">
-    <p>Thank you for subscribing and becoming part of MealMaker!<br>You will now receive frequent updates.</p>
+    <p id="popup-message">Thank you for subscribing and becoming part of MealMaker!<br>You will now receive frequent updates.</p>
     <button onclick="closePopup()">Close</button>
   </div>
 </div>
@@ -41,18 +40,30 @@
 <!-- Add this JavaScript -->
 <script>
 function subscribeNewsletter() {
-  const emailInput = document.getElementById('newsletterEmail').value;
-  if (emailInput.trim() === '') {
-    alert('Please enter your email.');
+  const emailInput = document.getElementById('newsletterEmail').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+
+  if (emailInput === '') {
+    popupMessage.innerHTML = '❌ Please enter your email.';
+    popup.style.display = 'flex';
     return;
   }
-  
-  // Show the popup
-  document.getElementById('popup').style.display = 'flex';
+
+  if (!emailRegex.test(emailInput)) {
+    popupMessage.innerHTML = '❌ Please enter a valid email address (e.g., user@example.com).';
+    popup.style.display = 'flex';
+    return;
+  }
+
+  // Success message
+  popupMessage.innerHTML = '✅ Thank you for subscribing and becoming part of MealMaker!<br>You will now receive frequent updates.';
+  popup.style.display = 'flex';
 }
 
 function closePopup() {
   document.getElementById('popup').style.display = 'none';
-  document.getElementById('newsletterEmail').value = ''; // clear email input
+  document.getElementById('newsletterEmail').value = ''; // clear input
 }
 </script>
